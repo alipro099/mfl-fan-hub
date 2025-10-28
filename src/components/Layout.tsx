@@ -1,4 +1,4 @@
-import { Home, Trophy, Gamepad2, ListTodo, Users } from "lucide-react";
+import { Home, Trophy, Gamepad2, ListTodo, Newspaper } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
@@ -9,7 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     { path: "/fantasy", icon: Trophy, label: "Фэнтези" },
     { path: "/game", icon: Gamepad2, label: "Игра" },
     { path: "/tasks", icon: ListTodo, label: "Задания" },
-    { path: "/dating", icon: Users, label: "Знакомства" },
+    { path: "/dating", icon: Newspaper, label: "Новости" },
   ];
 
   return (
