@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/mfl-fun-hub/',
+  base: '/mfl-fan-hub/',
   server: {
     host: "::",
     port: 8080,
