@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Gamepad2, Coins, Gift, ArrowLeft, Circle } from "lucide-react";
+import { Coins, Gift, ArrowLeft, Circle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { toast } from "sonner";
@@ -113,70 +113,69 @@ const Game = () => {
       {/* Game Field - Full Screen */}
       <div className="flex-1 flex flex-col px-4 pb-4 min-h-0">
         <div className="flex-1 flex flex-col bg-gradient-to-b from-background to-background/95 rounded-lg min-h-0 p-3">
-            {/* Goal Visualization with Goalkeeper */}
-            <div className="flex-1 bg-gradient-to-b from-green-800/30 to-green-950/50 rounded-lg flex flex-col items-center justify-between py-4 relative overflow-hidden min-h-0">
-              {/* Goal */}
-              <div className="relative flex-shrink-0">
-                <div className="w-32 h-24 border-4 border-foreground/30 rounded-t-lg relative bg-foreground/5">
-                  <div className="absolute inset-0 grid grid-cols-3 gap-1 p-1.5">
-                    <div className="bg-foreground/10 rounded" />
-                    <div className="bg-foreground/10 rounded" />
-                    <div className="bg-foreground/10 rounded" />
-                  </div>
-                  {/* Goalkeeper */}
-                  <div className="absolute -bottom-5 left-1/2 -translate-x-1/2">
-                    <div className="text-3xl">🧤</div>
-                  </div>
+          {/* Goal Visualization with Goalkeeper */}
+          <div className="flex-1 bg-gradient-to-b from-green-800/30 to-green-950/50 rounded-lg flex flex-col items-center justify-between py-4 relative overflow-hidden min-h-0">
+            {/* Goal */}
+            <div className="relative flex-shrink-0">
+              <div className="w-32 h-24 border-4 border-foreground/30 rounded-t-lg relative bg-foreground/5">
+                <div className="absolute inset-0 grid grid-cols-3 gap-1 p-1.5">
+                  <div className="bg-foreground/10 rounded" />
+                  <div className="bg-foreground/10 rounded" />
+                  <div className="bg-foreground/10 rounded" />
+                </div>
+                {/* Goalkeeper */}
+                <div className="absolute -bottom-5 left-1/2 -translate-x-1/2">
+                  <div className="text-3xl">🧤</div>
                 </div>
               </div>
-
-              {/* Ball */}
-              <div className="flex-1 flex items-center justify-center">
-                <div id="ball" className="text-5xl transition-all duration-500">⚽</div>
-              </div>
-
-              {/* Shot Counter */}
-              <div className="text-center bg-background/50 backdrop-blur-sm rounded-full px-3 py-1.5 flex-shrink-0">
-                <p className="text-xs text-muted-foreground">
-                  До сундука: <span className="text-primary font-bold">{5 - (shots % 5)}</span>
-                </p>
-              </div>
             </div>
 
-            {/* Direction Buttons */}
-            <div className="grid grid-cols-3 gap-2 mt-3 flex-shrink-0">
-              {directions.map((dir) => {
-                const Icon = dir.icon;
-                return (
-                  <Button
-                    key={dir.id}
-                    onClick={() => handleShot(dir.id)}
-                    variant="outline"
-                    className="h-14 flex-col gap-1 border-primary hover:bg-primary/10 text-xs"
-                  >
-                    <Icon className={`w-4 h-4 ${dir.rotate ? "rotate-180" : ""}`} />
-                    <span>{dir.label}</span>
-                  </Button>
-                );
-              })}
+            {/* Ball */}
+            <div className="flex-1 flex items-center justify-center">
+              <div id="ball" className="text-5xl transition-all duration-500">⚽</div>
             </div>
 
-            {/* Stats */}
-            <div className="flex justify-around text-center mt-3 pt-3 border-t border-border flex-shrink-0">
-              <div>
-                <p className="text-lg font-bold text-primary">{shots}</p>
-                <p className="text-[10px] text-muted-foreground">Ударов</p>
-              </div>
-              <div className="w-px bg-border" />
-              <div>
-                <p className="text-lg font-bold text-primary">{Math.floor(shots / 5)}</p>
-                <p className="text-[10px] text-muted-foreground">Сундуков</p>
-              </div>
-              <div className="w-px bg-border" />
-              <div>
-                <p className="text-lg font-bold text-primary">{coins}</p>
-                <p className="text-[10px] text-muted-foreground">Коинов</p>
-              </div>
+            {/* Shot Counter */}
+            <div className="text-center bg-background/50 backdrop-blur-sm rounded-full px-3 py-1.5 flex-shrink-0">
+              <p className="text-xs text-muted-foreground">
+                До сундука: <span className="text-primary font-bold">{5 - (shots % 5)}</span>
+              </p>
+            </div>
+          </div>
+
+          {/* Direction Buttons */}
+          <div className="grid grid-cols-3 gap-2 mt-3 flex-shrink-0">
+            {directions.map((dir) => {
+              const Icon = dir.icon;
+              return (
+                <Button
+                  key={dir.id}
+                  onClick={() => handleShot(dir.id)}
+                  variant="outline"
+                  className="h-14 flex-col gap-1 border-primary hover:bg-primary/10 text-xs"
+                >
+                  <Icon className={`w-4 h-4 ${dir.rotate ? "rotate-180" : ""}`} />
+                  <span>{dir.label}</span>
+                </Button>
+              );
+            })}
+          </div>
+
+          {/* Stats */}
+          <div className="flex justify-around text-center mt-3 pt-3 border-t border-border flex-shrink-0">
+            <div>
+              <p className="text-lg font-bold text-primary">{shots}</p>
+              <p className="text-[10px] text-muted-foreground">Ударов</p>
+            </div>
+            <div className="w-px bg-border" />
+            <div>
+              <p className="text-lg font-bold text-primary">{Math.floor(shots / 5)}</p>
+              <p className="text-[10px] text-muted-foreground">Сундуков</p>
+            </div>
+            <div className="w-px bg-border" />
+            <div>
+              <p className="text-lg font-bold text-primary">{coins}</p>
+              <p className="text-[10px] text-muted-foreground">Коинов</p>
             </div>
           </div>
         </div>
