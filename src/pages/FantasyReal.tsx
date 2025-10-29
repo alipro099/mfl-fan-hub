@@ -181,19 +181,11 @@ const FantasyReal = () => {
       </section>
 
       <Button 
-        className="w-full bg-primary hover:bg-primary/90 h-12"
+        className="w-full bg-primary hover:bg-primary/90 h-12 mb-6"
         onClick={() => window.open('https://mfl.life/game/fantasy/rating/', '_blank')}
       >
         <Trophy className="w-5 h-5 mr-2" />
         Общий рейтинг
-      </Button>
-
-      <Button 
-        variant="outline"
-        className="w-full border-primary text-primary hover:bg-primary/10 h-12"
-        onClick={() => window.open('https://mfl.life/game/fantasy/7/my-team/stages/35/', '_blank')}
-      >
-        Открыть полную версию на MFL.life
       </Button>
     </div>
   );
