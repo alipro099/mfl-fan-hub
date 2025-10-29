@@ -101,9 +101,6 @@ const FantasyReal = () => {
           <div className="text-sm">
             <p className="font-semibold mb-1">10 тур</p>
             <p className="text-muted-foreground">с 27.10.2025</p>
-            <p className="text-xs text-muted-foreground mt-2">
-              Для полного управления командой перейдите на сайт MFL
-            </p>
           </div>
         </div>
       </Card>
@@ -115,14 +112,6 @@ const FantasyReal = () => {
             <Users className="w-5 h-5 text-primary" />
             Моя команда
           </h2>
-          <Button 
-            size="sm" 
-            variant="outline" 
-            className="border-primary text-primary"
-            onClick={() => window.open('https://mfl.life/game/fantasy/7/my-team/stages/35/', '_blank')}
-          >
-            Изменить
-          </Button>
         </div>
         <div className="space-y-2">
           {myTeam.map((player) => (
@@ -180,13 +169,204 @@ const FantasyReal = () => {
         </div>
       </section>
 
-      <Button 
-        className="w-full bg-primary hover:bg-primary/90 h-12 mb-6"
-        onClick={() => window.open('https://mfl.life/game/fantasy/rating/', '_blank')}
-      >
-        <Trophy className="w-5 h-5 mr-2" />
-        Общий рейтинг
-      </Button>
+      {/* Rules Section */}
+      <section className="space-y-3">
+        <h2 className="text-xl font-bold flex items-center gap-2">
+          <Info className="w-5 h-5 text-primary" />
+          Правила
+        </h2>
+        <Card className="p-4 bg-card border-border">
+          <div className="space-y-4 text-sm">
+            <div>
+              <h3 className="font-bold mb-2">ФЭНТЕЗИ-ФУТБОЛ</h3>
+              <p className="text-muted-foreground">Игра, в которой участники формируют виртуальную команду футболистов, чьи прототипы принимают участие в реальных турнирах и набирают очки в пользу своих виртуальных профилей. В игре нет денежных вложений или ставок.</p>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-2">COINS</h3>
+              <p className="text-muted-foreground">Внутриигровая валюта, по которой оцениваются игроки и осуществляется набор состава.</p>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-2">ТРАНСФЕРЫ</h3>
+              <p className="text-muted-foreground">Общая сумма Coins (100), которая доступна каждому участнику для формирования состава. Трансферный бюджет является одинаковым для всех участников.</p>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-2">КАПИТАН</h3>
+              <p className="text-muted-foreground">Фэнтези-футболист в составе команды. Очки капитана за каждый тур удваиваются. На каждый тур выбирается только один капитан.</p>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-2">ЗАМЕНЫ</h3>
+              <p className="text-muted-foreground">Замены футболистов в составе команды между турами. Количество замен не ограничено.</p>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-2">БОНУСНЫЕ ОЧКИ</h3>
+              <p className="text-muted-foreground">Каждый тур к очкам добавляются бонусные очки, которые равны количеству не потраченных coins. Пример: если у вас 100 coin в банке, а стоимость состава 87 coin, то 13 coin будут конвертированы в 13 очков.</p>
+            </div>
+            
+            <div>
+              <h3 className="font-bold mb-2">СКАМЕЙКА ЗАПАСНЫХ</h3>
+              <p className="text-muted-foreground">В состав команды каждый тур можно включить 4 футболиста, по одному на каждую позицию. Если игрок основного состава не выйдет на поле, система автоматически учтёт очки игрока на замене.</p>
+            </div>
+          </div>
+        </Card>
+      </section>
+
+      {/* Scoring Table */}
+      <section className="space-y-3 mb-6">
+        <h2 className="text-xl font-bold">Турнирная таблица</h2>
+        <Card className="p-4 bg-card border-border overflow-x-auto">
+          <table className="w-full text-xs">
+            <thead>
+              <tr className="border-b border-primary">
+                <th className="text-left py-2 pr-2 font-bold text-primary">ЗА ЧТО ИГРОКИ ПОЛУЧАЮТ ОЧКИ?</th>
+                <th className="text-center py-2 px-1 font-bold text-primary">ВР</th>
+                <th className="text-center py-2 px-1 font-bold text-primary">ЗЩ</th>
+                <th className="text-center py-2 px-1 font-bold text-primary">ПЗ</th>
+                <th className="text-center py-2 px-1 font-bold text-primary">НП</th>
+              </tr>
+            </thead>
+            <tbody className="text-xs">
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Стартовый состав</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Победа в матче</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Ничья</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Поражение</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Забитый гол</td>
+                <td className="text-center py-2 px-1">10</td>
+                <td className="text-center py-2 px-1">6</td>
+                <td className="text-center py-2 px-1">5</td>
+                <td className="text-center py-2 px-1">5</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Голевой пас</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Сухой матч</td>
+                <td className="text-center py-2 px-1">4</td>
+                <td className="text-center py-2 px-1">4</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">0</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Каждые 2 пропущенных гола</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">0</td>
+                <td className="text-center py-2 px-1">0</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Отбитый пенальти</td>
+                <td className="text-center py-2 px-1">5</td>
+                <td className="text-center py-2 px-1">0</td>
+                <td className="text-center py-2 px-1">0</td>
+                <td className="text-center py-2 px-1">0</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Жёлтая карточка</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">-1</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Вторая жёлтая карточка</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Красная карточка</td>
+                <td className="text-center py-2 px-1">-3</td>
+                <td className="text-center py-2 px-1">-3</td>
+                <td className="text-center py-2 px-1">-3</td>
+                <td className="text-center py-2 px-1">-3</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Автогол</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Заработанный пенальти</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+                <td className="text-center py-2 px-1">3</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Фол, за который назначен пенальти</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">-1</td>
+                <td className="text-center py-2 px-1">-1</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Незабитый пенальти</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+                <td className="text-center py-2 px-1">-2</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Сыгранных минут (40+)</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+              </tr>
+              <tr className="border-b border-border/50">
+                <td className="py-2 pr-2">Сыгранных минут (80+)</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+                <td className="text-center py-2 px-1">2</td>
+              </tr>
+              <tr>
+                <td className="py-2 pr-2">Общекомандные удары по воротам (каждые 10)</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+                <td className="text-center py-2 px-1">1</td>
+              </tr>
+            </tbody>
+          </table>
+        </Card>
+      </section>
     </div>
   );
 };

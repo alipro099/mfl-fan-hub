@@ -81,15 +81,8 @@ const Game = () => {
 
   return (
     <div className="fixed inset-0 bg-background flex flex-col overflow-hidden">
-      {/* Header */}
-      <div className="text-center space-y-1 pt-4 pb-2 px-4 flex-shrink-0">
-        <Gamepad2 className="w-8 h-8 text-primary mx-auto animate-glow-pulse" />
-        <h1 className="text-xl font-bold">Пенальти</h1>
-        <p className="text-xs text-muted-foreground">Забивай и получай награды</p>
-      </div>
-
       {/* Coins Display */}
-      <div className="px-4 pb-2 flex-shrink-0">
+      <div className="px-4 pt-4 pb-2 flex-shrink-0">
         <Card className="p-2 bg-gradient-to-br from-primary/20 to-primary/5 border-primary">
           <div className="flex items-center justify-center gap-2">
             <Coins className="w-4 h-4 text-primary" />
@@ -118,9 +111,8 @@ const Game = () => {
       )}
 
       {/* Game Field - Full Screen */}
-      <div className="flex-1 flex flex-col px-4 pb-20 min-h-0">
-        <Card className="flex-1 flex flex-col bg-card border-border min-h-0">
-          <div className="flex-1 flex flex-col p-3 min-h-0">
+      <div className="flex-1 flex flex-col px-4 pb-4 min-h-0">
+        <div className="flex-1 flex flex-col bg-gradient-to-b from-background to-background/95 rounded-lg min-h-0 p-3">
             {/* Goal Visualization with Goalkeeper */}
             <div className="flex-1 bg-gradient-to-b from-green-800/30 to-green-950/50 rounded-lg flex flex-col items-center justify-between py-4 relative overflow-hidden min-h-0">
               {/* Goal */}
@@ -187,7 +179,7 @@ const Game = () => {
               </div>
             </div>
           </div>
-        </Card>
+        </div>
       </div>
     </div>
   );
