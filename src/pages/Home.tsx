@@ -2,6 +2,9 @@ import { Calendar, MapPin, Play, ShoppingBag, Ticket, Instagram, Send } from "lu
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import mflLogo from "@/assets/mfl-logo.png";
+import bestGoalsThumb from "@/assets/best-goals.png";
+import matchReviewThumb from "@/assets/match-review.png";
 
 const Home = () => {
   const matches = [
@@ -32,15 +35,15 @@ const Home = () => {
     {
       id: 1,
       title: "Лучшие голы сезона",
-      thumbnail: "⚽",
-      duration: "5:32",
+      thumbnail: bestGoalsThumb,
+      duration: "13:13",
       url: "https://youtu.be/PU6t9KSDoGk?si=pML0lI_mQHvkYmMG",
     },
     {
       id: 2,
       title: "Обзор матча",
-      thumbnail: "🎬",
-      duration: "3:15",
+      thumbnail: matchReviewThumb,
+      duration: "8:54",
       url: "https://youtu.be/dXHxT74tkgs?si=FCI1CxfLXy-Lu6fL",
     },
   ];
@@ -73,9 +76,7 @@ const Home = () => {
     <div className="p-4 space-y-6 animate-slide-up">
       {/* Header */}
       <div className="text-center space-y-2 pt-4">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-primary to-orange-600 bg-clip-text text-transparent">
-          MFL
-        </h1>
+        <img src={mflLogo} alt="MFL Logo" className="w-32 h-32 mx-auto" />
         <p className="text-muted-foreground">Winline Media League</p>
       </div>
 
@@ -175,11 +176,13 @@ const Home = () => {
               className="p-3 bg-card border-border hover:border-primary transition-colors cursor-pointer"
               onClick={() => window.open(video.url, '_blank')}
             >
-              <div className="aspect-video bg-secondary rounded-lg flex items-center justify-center text-4xl mb-2">
-                {video.thumbnail}
+              <div className="aspect-video bg-secondary rounded-lg overflow-hidden mb-2 relative">
+                <img src={video.thumbnail} alt={video.title} className="w-full h-full object-cover" />
+                <div className="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded">
+                  {video.duration}
+                </div>
               </div>
               <p className="text-sm font-medium line-clamp-2">{video.title}</p>
-              <p className="text-xs text-muted-foreground mt-1">{video.duration}</p>
             </Card>
           ))}
         </div>
