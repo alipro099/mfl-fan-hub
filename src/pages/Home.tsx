@@ -76,7 +76,7 @@ const Home = () => {
     <div className="p-4 space-y-6 animate-slide-up">
       {/* Header */}
       <div className="text-center space-y-2 pt-4">
-        <img src={mflLogo} alt="MFL Logo" className="w-32 h-32 mx-auto" />
+        <img src={mflLogo} alt="MFL Logo" className="w-24 h-24 mx-auto object-contain" />
         <p className="text-muted-foreground">Winline Media League</p>
       </div>
 
@@ -113,10 +113,10 @@ const Home = () => {
                   {match.location}
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex flex-col sm:flex-row gap-2">
                   {match.isLive && match.streamUrl && (
                     <Button 
-                      className="flex-1 bg-primary hover:bg-primary/90"
+                      className="w-full sm:flex-1 bg-primary hover:bg-primary/90"
                       onClick={() => window.open(match.streamUrl, '_blank')}
                     >
                       <Play className="w-4 h-4 mr-2" />
@@ -125,7 +125,7 @@ const Home = () => {
                   )}
                   <Button 
                     variant="outline"
-                    className="flex-1 border-primary text-primary hover:bg-primary/10"
+                    className="w-full sm:flex-1 border-primary text-primary hover:bg-primary/10"
                     onClick={() => window.open(match.ticketUrl, '_blank')}
                   >
                     <Ticket className="w-4 h-4 mr-2" />
@@ -203,7 +203,11 @@ const Home = () => {
             <Ticket className="w-8 h-8 text-primary" />
             <span>Купить билет</span>
           </Button>
-          <Button variant="outline" className="h-auto py-6 flex-col gap-2 border-primary hover:bg-primary/10">
+          <Button 
+            variant="outline" 
+            className="h-auto py-6 flex-col gap-2 border-primary hover:bg-primary/10"
+            onClick={() => window.open('https://medialeague.shop/medialove', '_blank')}
+          >
             <ShoppingBag className="w-8 h-8 text-primary" />
             <span>Купить мерч</span>
           </Button>
