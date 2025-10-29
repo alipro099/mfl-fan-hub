@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Telegram Mini App styles */
+html, body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+}
+
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */

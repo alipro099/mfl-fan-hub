@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { CheckCircle2, Coins, Gift, Instagram, Youtube, Users as TelegramIcon } from "lucide-react";
+import { CheckCircle2, Coins, Gift, Instagram, Youtube, Send, CreditCard } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -22,7 +22,7 @@ const Tasks = () => {
       title: "Подписаться на Telegram",
       description: "Подпишись на канал МФЛ",
       reward: 100,
-      icon: TelegramIcon,
+      icon: Send,
       completed: false,
       type: "social",
     },
@@ -56,18 +56,41 @@ const Tasks = () => {
     {
       id: 5,
       title: "Сделать ставку",
-      description: "Сделай первую ставку",
+      description: "Сделай первую ставку на Winline",
       reward: 300,
       icon: Coins,
       completed: false,
       type: "action",
+    },
+    {
+      id: 6,
+      title: "Оформить карту Альфа-Банк",
+      description: "Получи карту от партнёра",
+      reward: 1000,
+      icon: CreditCard,
+      completed: false,
+      type: "partner",
     },
   ]);
 
   const totalCoins = tasks.reduce((sum, task) => sum + (task.completed ? task.reward : 0), 0);
   const completedCount = tasks.filter(t => t.completed).length;
 
+  const taskUrls: Record<number, string> = {
+    1: "https://t.me/WinlineML",
+    2: "https://www.instagram.com/winline.media.league",
+    3: "https://youtube.com/@winline.media.league",
+    4: "https://p.winline.ru",
+    5: "https://p.winline.ru",
+    6: "https://alfa.me/",
+  };
+
   const handleComplete = (taskId: number) => {
+    const url = taskUrls[taskId];
+    if (url) {
+      window.open(url, '_blank');
+    }
+    
     setTasks(prev => prev.map(task => 
       task.id === taskId ? { ...task, completed: true } : task
     ));
