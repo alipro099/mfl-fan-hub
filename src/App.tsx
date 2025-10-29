@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import FantasyReal from "./pages/FantasyReal";
 import Game from "./pages/Game";
 import Tasks from "./pages/Tasks";
-import Dating from "./pages/Dating";
+import Korobka from "./pages/Korobka";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,7 +25,7 @@ const App = () => (
           <Route path="/fantasy" element={<FantasyReal />} />
           <Route path="/game" element={<Game />} />
           <Route path="/tasks" element={<Tasks />} />
-          <Route path="/dating" element={<Dating />} />
+          <Route path="/korobka" element={<Korobka />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>
